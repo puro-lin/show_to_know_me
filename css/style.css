@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7ff;
+    color: #252747;
+    line-height: 1.6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: white;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+.logo {
+    color: #635bdb;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #252747;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #635bdb;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 70px 8%;
+    min-height: 430px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.sapaan {
+    color: #635bdb;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero-text h1 {
+    font-size: 46px;
+    margin: 8px 0;
+}
+
+.hero-text h2 {
+    color: #635bdb;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.tombol {
+    display: inline-block;
+    background-color: #635bdb;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.tombol:hover {
+    background-color: #4941b5;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+    .hero-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid slateblue;
+}
+}
+
+.tentang,
+.skill,
+.kontak {
+    padding: 55px 8%;
+    text-align: center;
+}
+
+.tentang {
+    background-color: white;
+}
+
+.tentang p {
+    max-width: 650px;
+    margin: 15px auto 0;
+}
+
+.skill-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    background-color: white;
+    padding: 25px;
+    width: 260px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px #00000010;
+}
+
+.skill-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.skill-card h3 {
+    color: #635bdb;
+    margin-bottom: 8px;
+}
+
+.kontak {
+    background-color: #e9e8ff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #252747;
+    color: white;
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 45px 8%;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image img {
+        max-width: 220px;
+    }
+}
+/* ANIMASI PORTOFOLIO */
+
+/* Halaman muncul perlahan */
+body {
+    animation: halamanMuncul 1s ease;
+}
+
+@keyframes halamanMuncul {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Sapaan masuk dari kiri */
+.sapaan {
+    animation: masukKiri 1s ease both;
+}
+
+@keyframes masukKiri {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Nama muncul dari bawah */
+.hero-text h1 {
+    animation: masukBawah 1s ease 0.2s both;
+}
+
+.hero-text h2 {
+    animation: masukBawah 1s ease 0.4s both;
+}
+
+.hero-text > p:not(.sapaan) {
+    animation: masukBawah 1s ease 0.6s both;
+}
+
+@keyframes masukBawah {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Foto bergerak mengambang */
+.hero-image img {
+    animation: melayang 3s ease-in-out infinite;
+    transition: transform 0.4s ease;
+}
+
+@keyframes melayang {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Efek saat foto disentuh atau diarahkan */
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Tombol interaktif */
+.tombol {
+    display: inline-block;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+    animation: tombolMuncul 1s ease 0.8s both;
+}
+
+.tombol:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(99, 91, 219, 0.35);
+}
+
+@keyframes tombolMuncul {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Menu navbar muncul perlahan */
+.navbar nav a {
+    transition: color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.navbar nav a:hover {
+    transform: translateY(-3px);
+    color: #635bdb;
+}
+
+/* Footer muncul perlahan */
+footer {
+    animation: halamanMuncul 1.5s ease;
+}
+
+/* Mengurangi animasi jika pengguna memilihnya */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
